@@ -1,54 +1,44 @@
-# Оценка надежности заемщика банка в условиях неполноты информации
+# Bank Borrower Reliability Under Incomplete Information
 
-[Jupyter notebook]()
+**Format:** Jupyter Notebook
 
-## Описание проекта
+## Project description
+**Client:** the bank’s Credit Department.  
+**Input data:** statistics on clients’ creditworthiness provided by the bank.  
+**Object of study:** the bank borrower.  
+**Subject of study:** borrower reliability.
 
-Заказчик — кредитный отдел банка.
-Входные данные от банка — статистика о платёжеспособности клиентов.
-Объектом исследования является заёмщик банка.
-Предмет исследования - надёжность заёмщика банка.
-Результаты исследования будут учтены при построении модели кредитного скоринга — специальной системы, которая оценивает способность потенциального заёмщика вернуть кредит банку.
+The results of this analysis can be used to support the development of a **credit scoring** model — a system that assesses a potential borrower’s ability to repay a loan.
 
-## Задачи:
+## Tasks
+- Develop a data preprocessing approach;
+- Handle missing values and invalid entries (artefacts);
+- Review duplicate records;
+- Answer the following questions:
+  - Is there a relationship between having children and repaying the loan on time?
+  - Is there a relationship between marital status and repaying the loan on time?
+  - Is there a relationship between income level and repaying the loan on time?
+  - How do different loan purposes affect on-time repayment?
 
-- Разработка подхода к предобработке данных;
-- Обработка пропущенных значений и артефактов;
-- Обработка дубликатов данных;
-- В рамках данной работы необходимо ответить на следующие вопросы:
-    - Есть ли зависимость между наличием детей и возвратом кредита в срок?
-    - Есть ли зависимость между семейным положением и возвратом кредита в срок?
-    - Есть ли зависимость между уровнем дохода и возвратом кредита в срок?
-    - Как разные цели кредита влияют на его возврат в срок?
+## Libraries and tools
+- Python
+- Jupyter Notebook
+- pandas
+- numpy
+- re
 
+## Conclusion
+Within the scope of this work, the following tasks were completed:
 
-## Библиотеки и инструменты
+- Data preprocessing was carried out:
+  - anomalous values and missing data were identified;
+  - an approach to handling them was developed, documented, and applied;
+  - variables required for the analysis were categorised;
+- The research questions were answered using summary tables.
 
-- **python**
-- **jupiter notebook**
-- **numpy**
-- **pymorphy2**
-- **collections**
-- **nltk.corpus**
+_**Practical significance:**_  
+The preprocessing performed in this work enables the cleaned dataset to be used for further analysis and for building credit scoring models. The resulting summary tables help assess how borrower reliability varies with selected client characteristics.
 
-## Общий вывод
-
-В рамках данной работы были решены следующие задачи:
-
-- Проведена предобработка данных:
-  - найдены аномальные данные и пропущенные значения;
-  - разработан, описан и применен подход к их исправлению;
-  - проведена категоризация данных, необходимых для анализа;
-- Даны ответы на поставленные вопросы.
-
-  
-Практическая значимость проекта: 
-
-- Предобработка данных, проведенная в данной работе позволяет использовать очищенные данные для дальнейшего анализа и построения моделей кредитного скоринга.
-- Полученные сводные таблицы позволяют оценить зависимость надежности клиента от некоторых характеристик.
-
-
-Рекомендации по сбору данных:
-
-- проверить, как считаются данные столбца days_employed для пенсионеров и безработных;
-- дать четкие инструкции операторам о записи данных в столбец purpose.
+_**Recommendations for data collection:**_
+- Review the logic used to compute `days_employed` for pensioners and unemployed clients;
+- Provide clear, standardised guidance for recording values in the `purpose` column.
