@@ -1,11 +1,9 @@
 # DS_projects_Yandex_Practikum
 Data Science projects from Yandex Practikum
 
-В репозитории содержатся проекты, выполненные в рамках обучения по Data Science в Яндекс Практикуме
-
-Название проекта | Описание
+Project's name | Discription
 :-------------- |:--------
-| [Bank Borrower Reliability](project_bank_ev.ipynb) | Data preprocessing and quality checks for a bank borrower dataset used for credit scoring. The work includes handling missing values and invalid entries, standardising and translating categorical features, rule-based grouping of loan purposes, and descriptive analysis with summary tables to answer stakeholder questions. Libraries: pandas, numpy, re |
+[Bank Borrower Reliability](project_bank_ev.ipynb) | Data preprocessing and quality checks for a bank borrower dataset used for credit scoring. The work includes handling missing values and invalid entries, standardising and translating categorical features, rule-based grouping of loan purposes, and descriptive analysis with summary tables to answer stakeholder questions. Libraries: pandas, numpy, re |
 
 [Определение стоимости автомобиля](https://github.com/OlgaSkripa/DS_projects_Yandex_Practikum/car_project/project_car) | Сервис по продаже автомобилей с пробегом «Не бит, не крашен» разрабатывает приложение для привлечения новых клиентов. В нём можно быстро узнать рыночную стоимость своего автомобиля. В вашем распоряжении исторические данные: технические характеристики, комплектации и цены автомобилей. Вам нужно построить модель для определения стоимости. Заказчику важны: качество предсказания, скорость предсказания, время обучения. Используемые библиотеки: pandas, numpy, seaborn, matplotlib, re, time, sklearn, catboost, lightgbm.
 [Прогнозирование оттока клиентов банка](https://github.com/OlgaSkripa/DS_projects_Yandex_Practikum/customer_churn_project/project_churn) | Клиенты это основа успеха любого бизнеса, в том числе и банковской деятельности. Поэтомы банки заинтересованытв создании условий для предотвращения оттока клиентов. Из «Бета-Банка» стали уходить клиенты. Каждый месяц. Немного, но заметно. Банковские маркетологи посчитали: сохранять текущих клиентов дешевле, чем привлекать новых. В проекте мы будем строить модель, которая спрогнозирует уйдёт клиент из банка в ближайшее время или нет. Используем исторические данные о поведении клиентов и расторжении договоров с банком. Построим модель с предельно большим значением F1-меры. Нижняя граница метрики F1 - 0.59. Дополнительно измеряйте AUC-ROC, сравнивайте её значение с F1-мерой. Цель: Построить модель с предельно большим значением меры F1. Используемые библиотеки: pandas, numpy, seaborn, pprint, sklearn, matplotlib.
