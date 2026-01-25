@@ -1,66 +1,61 @@
-## Описание проекта "Прогнозирование оттока клиентов банка"
+## Bank customer churn prediction
 
-Клиенты это основа успеха любого бизнеса, в том числе и банковской деятельности. Поэтому банки заинтересованы в создании условий для предотвращения оттока клиентов.
+### Project summary
+Beta Bank has been losing customers every month. In this project, I build a binary classification model to predict whether a customer will leave the bank in the near future, using historical behavioural and contract data.
 
-Из «Бета-Банка» стали уходить клиенты. Каждый месяц. Немного, но заметно. Банковские маркетологи посчитали: сохранять текущих клиентов дешевле, чем привлекать новых.
+**Goal:** maximise **F1-score** (minimum required: **0.59**)  
+**Additional metric:** **ROC AUC**
 
-В проекте мы будем строить модель, которая спрогнозирует уйдёт клиент из банка в ближайшее время или нет.
-Используем исторические данные о поведении клиентов и расторжении договоров с банком.
+### Key results
+- Best model: **Random Forest** with **class_weight='balanced'**
+- Test metrics:
+  - **F1 = 0.645**
+  - ROC AUC = 0.868
+  - Accuracy = 0.855
+  - Precision = 0.642
+  - Recall = 0.649
+- Class imbalance detected (~1:4) and addressed using three approaches:
+  - class weighting (best)
+  - undersampling
+  - oversampling
+- Sanity check: compared against a constant baseline model (predicting the majority class).
+- Feature importance analysis confirmed earlier EDA assumptions (e.g., customer age and number of bank products were among the most influential factors).
 
-Построим модель с предельно большим значением F1-меры. Нижняя граница метрики F1 - 0.59. 
+### Workflow
+1. Data exploration and EDA
+2. Data preprocessing
+3. Train/valid/test split (with stratification)
+4. Baseline models without imbalance handling
+5. Hyperparameter tuning with **GridSearchCV**
+6. Handling class imbalance:
+   - class weights
+   - undersampling
+   - oversampling
+7. Final evaluation on the test set
 
-Дополнительно измеряйте AUC-ROC, сравнивайте её значение с F1-мерой.
+### Tech stack
+Python, pandas, NumPy, scikit-learn, matplotlib, seaborn
 
-**Цель: Построить модель с предельно большим значением меры F1**
+<details>
+  <summary><b>Final model parameters (Random Forest)</b></summary>
 
-### План
+  - bootstrap: True  
+  - ccp_alpha: 0.0  
+  - class_weight: 'balanced'  
+  - criterion: 'gini'  
+  - max_depth: None  
+  - max_features: 'sqrt'  
+  - max_leaf_nodes: None  
+  - max_samples: None  
+  - min_impurity_decrease: 0.0  
+  - min_samples_leaf: 4  
+  - min_samples_split: 2  
+  - min_weight_fraction_leaf: 0.0  
+  - n_estimators: 100  
+  - n_jobs: None  
+  - oob_score: False  
+  - random_state: 12345  
+  - verbose: 0  
+  - warm_start: False  
 
-Шаг 1. Изучение общей информации данных.
-
-Шаг 2. Предобработка данных.
-
-Шаг 3. Исследование баланса данных.
-
-Шаг 4. Построение модели без учета дисбаланса данных. Выводы.
-
-Шаг 5. Улучшение качества модели, учитывая дисбаланс классов. Обучаем разные модели и найдим лучшую. Выводы.
-
-Шаг 6. Проводим финальное тестирование.
-
-### Выводы
-
- - Были изучены данные. Выполнена предообработка, проведен разведочный анализ данных. 
- - Разбиты данные на тренировочную, валидационную и тестовую выборку.
- - Установлен факт несбалансируемых классов.
- - Проверены модели на данных без балансировки классов. 
- - Выполнен подбор гиперпараметров с помощью GridSearch.
- - В качестве контрольной метрики используем F1 меру.   
- - Для борьбы с дисбалансом были использованы 3 метода, лучше всего себя показал метод взвешенных классов на модели Случайного леса.
- - Проведен финальный тест.
-    - используемая модель: Random Forest
-    - параметры: {'bootstrap': True,
-                  'ccp_alpha': 0.0,
-                 'class_weight': 'balanced',
-                 'criterion': 'gini',
-                 'max_depth': None,
-                 'max_features': 'auto',
-                 'max_leaf_nodes': None,
-                 'max_samples': None,
-                 'min_impurity_decrease': 0.0,
-                 'min_samples_leaf': 4,
-                 'min_samples_split': 2,
-                 'min_weight_fraction_leaf': 0.0,
-                 'n_estimators': 100,
-                 'n_jobs': None,
-                 'oob_score': False,
-                 'random_state': 12345,
-                 'verbose': 0,
-                 'warm_start': False}
-    - полученные метрики:
-        - accuracy = 0.855
-        - recall = 0.648649
-        - precision = 0.642336
-        - ***f1_score = 0.645477***
-        - aux_roc = 0.867513
-    - проверили модели на вменяемость, сравнением с константной моделью.
-    - рассмотрели важность признаков.
+</details>
