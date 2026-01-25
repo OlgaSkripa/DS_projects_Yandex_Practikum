@@ -1,30 +1,20 @@
-## Описание проекта "Исследование объявлений о продаже квартир"
+# Real estate listings analysis (Yandex.Realty)
+(Notebook is currently in Russian; English version in progress.)
 
+### Overview
+Exploratory analysis of apartment listings in Saint Petersburg and nearby areas. The goal is to identify the key factors that drive market price and support automated anomaly/fraud detection. The dataset includes both user-entered listing attributes and geo features (distance to the city centre, airport, parks, water).
 
-В нашем распоряжении данные сервиса Яндекс.Недвижимость — архив объявлений о продаже квартир в Санкт-Петербурге и соседних населённых пунктах за несколько лет. Нужно научиться определять рыночную стоимость объектов недвижимости. Ваша задача — установить параметры. Это позволит построить автоматизированную систему: она отследит аномалии и мошенническую деятельность.
-По каждой квартире на продажу доступны два вида данных. Первые вписаны пользователем, вторые — получены автоматически на основе картографических данных. Например, расстояние до центра, аэропорта, ближайшего парка и водоёма.
+### What was done
+- Data cleaning and preprocessing
+- Feature engineering (additional parameters for analysis)
+- Exploratory data analysis with visualisations
+- Outlier handling
+- Analysis of the main price drivers and seasonal trends
 
-
-## Задачи и цели проекта
- - Выполнить предобработку данных;
- - расширить таблицу добавлением нужных для анализа параметров;
- - провести анализ данных:
-   - изучить параметры данных;
-   - посчитать нужные статистические характеристики;
-   - убрать выбросы;
-   - выяснить какие параметры влияют на цену квартиры и как;
-   - проиллюстрировать свои выводы;
-   - ответить на поставленные заказщиком вопросы.
-
-## Выводы
-- Чем больше площадь квартиры, тем выше цена
-- Чем больше цена за квадратный метр, тем выше цена
-- Чем выше размер жилой площади, тем выше цена
-- Потолки тем выше, чем ближе к центру
-- Доля площади кухни зависит от количества комнат в квартире
-- 90% на рынка квартир представляют 1-2-3 комнатные квартиры
-- чем больше комнат, тем выше цена
-- на первом этаже квартира дешевле, чем на остальных; на последнем дороже, чем на первом, но дешевле чем на остальных
-- Чем ближе к центру, тем дороже квартира.
-- Квартиры, размещенные к продаже в летние месяцы и в январе, в среднем дешевле, чем размещенные в любые другие месяца.
-- Квартиры, размещенные к продаже в 2014 году имели самые высокие ценыю Период 2015-2018 - спад цен. В 2019г цены пошли вверх.
+### Key findings
+- **Size matters:** larger total area and living area are associated with higher prices.
+- **Location matters:** apartments closer to the city centre tend to be more expensive; ceiling height is also higher closer to the centre.
+- **Rooms & layout:** most listings (≈90%) are 1–3 room apartments; more rooms generally means a higher price; the kitchen area share depends on the number of rooms.
+- **Floor effect:** first-floor apartments are cheaper; last-floor apartments are more expensive than first-floor ones but cheaper than apartments on middle floors.
+- **Seasonality:** listings posted in summer months and in January are, on average, cheaper than listings posted in other months.
+- **Time trend:** prices were highest in 2014, declined during 2015–2018, and started to rise again in 2019.
