@@ -1,28 +1,35 @@
-Описание проекта "Определение стоимости автомобилей"
+# Car Price Prediction Project
 
-**Задача:**
+(Notebook is currently in Russian; English version in progress)
 
-Построить модель для определения рыночной стоимости автомобиля. Модель выбирается с учетом:
-- качества предсказания. Для оценки качества моделей метрику используем RMSE
-- скорости предсказания;
-- времени обучения.
+### **Task**
 
-**Данные:**
-
-В нашем распоряжении исторические данные: технические характеристики, комплектации и цены автомобилей. 
-
-Данные находятся в файле autos.csv.
-
-**План проекта:**
-
-- Загрузка и просмотр данных
-- Анализ и предобработка данных
-- Обучим разные модели. Для каждой попробуем различные гиперпараметры.
-- Проанализируем скорость работы и качество моделей.
-- Выводы
+Build a model to estimate a car’s market price. The final model is chosen based on:
+- prediction quality (the main metric is RMSE);
+- prediction speed (inference time);
+- training time.
 
 
-**Используемые библиотеки**
+  
+### **Data**
+
+We use historical data containing car technical specifications, configurations (trim/options), and prices.
+
+The dataset is stored in autos.csv.
+
+
+
+### **Project plan**
+
+- Load and inspect the data
+- Data analysis and preprocessing
+- Train several models and tune hyperparameters
+- Compare models by quality (RMSE) and runtime (training + inference)
+- Conclusions
+
+
+
+### **Libraries used**
 - pandas
 - numpy
 - seaborn
@@ -34,14 +41,16 @@
 - lightgbm
 - warnings
 
-**Выводы**
+
+
+### **Conclusions**
     
-- Oбучены четыре модели:  Линейная регрессия, Случайный лес, CatBoost Регрессия, LGBM Регрессия
-- Найдены оптимальные гиперпараметры для каждой модели
-- Модели с оптимальными гиперпараметры протестированы на тестовом наборе данных
-- Проведено сравнение моделей по скорости работы и качества предсказания
-- Проверена адекватность всех моделей(сравнение с константной)
-- Наименьший показатель метрики RMSE = 1487.79 достигнут при использовании модели LightGBM Regressor
-- Самая быстрая модель  - Линейная регрессия.Но у нее очень плохое качество предсказания по сравнению с остальными моделями.
-- LightGBM Regressor чемпион по качеству и времени работы.
-- Для работы рекомендуется применять модель на основе LightGBM Regressor.
+- Trained four models: Linear Regression, Random Forest, CatBoost Regressor, and LightGBM Regressor.
+- Selected and tuned the best hyperparameters for each model.
+- Evaluated the tuned models on the test set.
+- Compared models by RMSE, training time, and prediction speed.
+- Performed a sanity check by comparing model performance with a constant (baseline) predictor.
+- The lowest test RMSE = 1487.79 was achieved with LightGBM Regressor.
+- Linear Regression was the fastest, but its prediction quality was significantly worse than the other models.
+- LightGBM Regressor provided the best overall trade-off between accuracy and runtime.
+- Recommendation: Use LightGBM Regressor as the final model.
