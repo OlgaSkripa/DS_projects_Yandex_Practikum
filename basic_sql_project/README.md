@@ -1,5 +1,7 @@
 # Basic SQL: Venture Funds & Investments
 
+Project brief (PDF): [basic_sql_project.pdf](basic_sql_project.pdf)
+
 ## Overview
 This project is an SQL case study based on a relational database about venture funding and company outcomes.  
 The database includes companies, venture funds, funding rounds, investments, acquisitions, and people/education tables.
